@@ -1,0 +1,34 @@
+{
+  "name": "christine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Christine — игровое изучение корейского алфавита. Next.js static export + PHP API.",
+  "scripts": {
+    "dev": "next dev",
+    "api": "php -S localhost:8000 -t public",
+    "build": "next build && node scripts/postbuild.mjs",
+    "preview": "php -S localhost:8080 -t out",
+    "typecheck": "tsc --noEmit",
+    "check": "npx --yes tsx scripts/check-content.ts",
+    "audio": "npx --yes tsx scripts/audio-list.ts && python scripts/gen-audio.py",
+    "images": "node scripts/fetch-images.mjs && node scripts/gen-avatars.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "bcryptjs": "^3.0.3",
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zustand": "5.0.15"
+  },
+  "devDependencies": {
+    "@dicebear/collection": "^9.4.2",
+    "@dicebear/core": "^9.4.3",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "sharp": "^0.35.5",
+    "typescript": "^5"
+  }
+}

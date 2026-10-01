@@ -1,0 +1,55 @@
+// Christine — Android-приложение (Trusted Web Activity): полноэкранный Chrome с сайтом приложения.
+// Адрес сайта передаётся при сборке: gradle assembleRelease -PtwaHost=christine.vercel.app
+plugins {
+    id 'com.android.application'
+}
+
+def twaHost = (project.findProperty('twaHost') ?: 'christine-korean.vercel.app').toString()
+def appVersionCode = (project.findProperty('versionCode') ?: '1').toString().toInteger()
+def appVersionName = (project.findProperty('versionName') ?: '1.0.0').toString()
+
+android {
+    namespace 'app.christine.korean'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'app.christine.korean'
+        minSdk 21
+        targetSdk 36
+        versionCode appVersionCode
+        versionName appVersionName
+
+        manifestPlaceholders = [hostName: twaHost, launchUrl: "https://${twaHost}/".toString()]
+        resValue 'string', 'asset_statements',
+            "[{ \\\"relation\\\": [\\\"delegate_permission/common.handle_all_urls\\\"], \\\"target\\\": { \\\"namespace\\\": \\\"web\\\", \\\"site\\\": \\\"https://${twaHost}\\\" } }]"
+    }
+
+    signingConfigs {
+        release {
+            def ks = System.getenv('KEYSTORE_PATH')
+            if (ks) {
+                storeFile file(ks)
+                storePassword System.getenv('KEYSTORE_PASSWORD')
+                keyAlias System.getenv('KEY_ALIAS') ?: 'christine'
+                keyPassword System.getenv('KEY_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (System.getenv('KEYSTORE_PATH')) signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures { resValues true }
+}
+
+dependencies {
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.7.3'
+}

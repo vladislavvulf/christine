@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.christine.korean",
+      "sha256_cert_fingerprints": ["D3:E0:CE:02:45:1D:BB:51:0A:64:99:FC:08:4F:EB:F5:93:35:25:A6:E0:F4:F4:7F:79:38:0B:DF:D8:CB:47:4B"]
+    }
+  }
+]

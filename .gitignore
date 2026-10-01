@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+# база данных (локальная разработка)
+christine-data/
+public/api/data/*.sqlite
+scripts/.audio-list.json
+
+# локальные настройки
+.claude/
+.vercel/
