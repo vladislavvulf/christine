@@ -33,10 +33,10 @@ if (!existsSync(OUT)) {
 }
 walk(OUT);
 
-// На Vercel API работает как Node-функция (api/main.ts) — PHP-файлы не отдаём, иначе их исходник скачался бы как статика
+// На Vercel API работает как Node-функция (api/main.mts) — PHP-файлы не отдаём, иначе их исходник скачался бы как статика
 if (process.env.VERCEL) {
   rmSync(join(OUT, 'api'), { recursive: true, force: true });
   rmSync(join(OUT, '.htaccess'), { force: true });
-  console.log('✓ postbuild: сборка для Vercel — PHP API убран, используется api/main.ts');
+  console.log('✓ postbuild: сборка для Vercel — PHP API убран, используется api/main.mts');
 }
 console.log(`✓ postbuild: создано ${copied} файлов предзагрузки. Папка out/ готова к загрузке на хостинг.`);

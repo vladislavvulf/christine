@@ -57,7 +57,7 @@ location ~ \.php$ { include fastcgi_params; fastcgi_pass unix:/run/php/php-fpm.s
 
 ## ▲ Деплой на Vercel
 
-На Vercel фронтенд раздаётся как статика, а API работает как Node-функция (`api/main.ts`) с базой Postgres.
+На Vercel фронтенд раздаётся как статика, а API работает как Node-функция (`api/main.mts`) с базой Postgres.
 Протокол тот же, что у PHP-версии, поэтому фронтенд одинаковый для обоих вариантов.
 
 1. Импортируйте репозиторий на [vercel.com/new](https://vercel.com/new). Настройки сборки уже лежат в `vercel.json`.
