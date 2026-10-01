@@ -166,7 +166,7 @@ async function handle(req: Request): Promise<Response> {
     try { body = text ? JSON.parse(text) : {}; } catch { body = {}; }
   }
   const needPost = () => { if (!isPost) fail('Нужен POST', 405); };
-  const googleId = process.env.GOOGLE_CLIENT_ID || '';
+  const googleId = (process.env.GOOGLE_CLIENT_ID || '').replace(/^﻿/, '').trim();
 
   if (action === 'config') return json({ googleClientId: googleId });
   await db();
