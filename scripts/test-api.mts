@@ -4,7 +4,7 @@ import { PGlite } from '@electric-sql/pglite';
 
 const pg = new PGlite();
 (globalThis as Record<string, unknown>).__christineQuery = async (t: string, p: unknown[]) => (await pg.query(t, p)).rows;
-const { GET, POST } = await import('../api/main.mjs');
+const { GET, POST } = await import('../api/main.js');
 
 let token = '';
 async function call(action: string, body?: unknown, extra = '') {

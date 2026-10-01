@@ -2,6 +2,7 @@
   "name": "christine",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Christine — игровое изучение корейского алфавита. Next.js static export + PHP API.",
   "scripts": {
     "dev": "next dev",
