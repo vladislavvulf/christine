@@ -1,5 +1,7 @@
 # Christine — корейский алфавит в игре 🐯
 
+**Сайт:** https://christine-korean.vercel.app · **Android:** [скачать APK](https://github.com/vladislavvulf/christine/releases/latest)
+
 Mobile-first веб-приложение для изучения хангыля: уроки-игры, аудирование, мини-игры, сцены в стиле дорам, рейтинг и регистрация.
 
 **Стек:** Next.js 16 (статический экспорт) + React 19 + PHP API (SQLite или MySQL).
