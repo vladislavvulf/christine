@@ -11,3 +11,6 @@ scripts/.audio-list.json
 # локальные настройки
 .claude/
 .vercel/
+
+.vercel
+.env*

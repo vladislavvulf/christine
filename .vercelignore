@@ -7,3 +7,4 @@ scripts/.audio-list.json
 *.keystore
 keystore-info.txt
 .claude/
+.env*
