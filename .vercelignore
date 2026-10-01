@@ -1,0 +1,9 @@
+android/
+out/
+.next/
+node_modules/
+christine-data/
+scripts/.audio-list.json
+*.keystore
+keystore-info.txt
+.claude/
