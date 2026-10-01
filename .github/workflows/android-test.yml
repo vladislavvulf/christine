@@ -35,10 +35,12 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
           script: |
+            adb shell "echo '_ --disable-fre --no-default-browser-check --no-first-run' > /data/local/tmp/chrome-command-line"
+            adb shell am set-debug-app --persistent com.android.chrome
             adb install -r app.apk
             adb logcat -c
             adb shell am start -W -n app.christine.korean/com.google.androidbrowserhelper.trusted.LauncherActivity || true
-            sleep 25
+            sleep 35
             adb exec-out screencap -p > screen.png || true
             adb logcat -d > logcat.txt || true
             adb shell dumpsys activity activities | grep -E "mResumedActivity|topResumedActivity" > activity.txt || true
