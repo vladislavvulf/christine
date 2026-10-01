@@ -28,7 +28,7 @@ return [
     // Вход через Google: Client ID из Google Cloud Console (APIs & Services → Credentials → OAuth client ID → Web application).
     // В «Authorized JavaScript origins» добавьте адрес сайта, например https://christine.ru
     // Пусто — кнопка Google не показывается.
-    'google_client_id' => '',
+    'google_client_id' => '932249165646-6o0upqj4jbnjr3qjumkdkmcsbigjpc3v.apps.googleusercontent.com',
 
     // Сколько дней живёт сессия
     'token_ttl_days' => 90,
